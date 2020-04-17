@@ -126,8 +126,8 @@ ApplicationWindow {
                             endofnexttrack = false
                             //curlistmod.setProperty(curTrackPos-1, "clr", "#00000000")
                             //curlistmod.setProperty(curTrackPos-1, "ico", "audio.png")
-                            cppmdl.setElementProperty(curTrackPos-1, "color", "#00000000")
-                            cppmdl.setElementProperty(curTrackPos-1, "icon", "audio.png")
+                            cppmdl.setElementProperty(curTrackPos-1, 260, "#00000000")
+                            cppmdl.setElementProperty(curTrackPos-1, 258, "audio.png")
                             curTrackPos = oldCurTrackPos
                         }
                         if(state_next_track === false)
@@ -138,14 +138,14 @@ ApplicationWindow {
                                 aplayer.stop()
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#00000000")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "audio.png")
-                                cppmdl.setElementProperty(curTrackPos-1, "color", "#00000000")
-                                cppmdl.setElementProperty(curTrackPos-1, "icon", "audio.png")
+                                cppmdl.setElementProperty(curTrackPos-1, 260, "#00000000")
+                                cppmdl.setElementProperty(curTrackPos-1, 258, "audio.png")
                                 tmpstr = setter.loadnamefromPL(aplayer.source)
                                 curTrackPos = 1
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#22acee48")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "curstop.png")
-                                cppmdl.setElementProperty(curTrackPos-1, "color", "#22acee48")
-                                cppmdl.setElementProperty(curTrackPos-1, "icon", "curstop.png")
+                                cppmdl.setElementProperty(curTrackPos-1, 260, "#22acee48")
+                                cppmdl.setElementProperty(curTrackPos-1, 258, "curstop.png")
                                 currentlist.currentIndex = curTrackPos-1
                                 setWidthOfPLName()
                                 stop_state = true
@@ -161,13 +161,13 @@ ApplicationWindow {
                                 timer.start()
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#00000000")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "audio.png")
-                                cppmdl.setElementProperty(curTrackPos-1, "color", "#00000000")
-                                cppmdl.setElementProperty(curTrackPos-1, "icon", "audio.png")
+                                cppmdl.setElementProperty(curTrackPos-1, 260, "#00000000")
+                                cppmdl.setElementProperty(curTrackPos-1, 258, "audio.png")
                                 curTrackPos++
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#22acee48")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "curplay.png")
-                                cppmdl.setElementProperty(curTrackPos-1, "color", "#22acee48")
-                                cppmdl.setElementProperty(curTrackPos-1, "icon", "curplay.png")
+                                cppmdl.setElementProperty(curTrackPos-1, 260, "#22acee48")
+                                cppmdl.setElementProperty(curTrackPos-1, 258, "curplay.png")
                                 setWidthOfPLName()
                                 currentlist.currentIndex = curTrackPos-1
                             }
@@ -180,35 +180,35 @@ ApplicationWindow {
                             tmpint = 1
                             for(var j = 0; j < generalTrackCount; j++){
                                 //if(curlistmod.get(j).mrknmb === 0)
-                                if(cppmdl.data(j, "mark_number") === 0)
+                                if(cppmdl.data(j, 263) === 0)
                                     continue
                                 else{
                                     //if(curlistmod.get(j).mrknmb === 1){
-                                    if(cppmdl.data(j, "mark_number") === 1){
+                                    if(cppmdl.data(j, 263) === 1){
                                         currentlist.currentIndex = j
                                         //curlistmod.setProperty(j, "mrknmb", 0)
                                         //curlistmod.setProperty(j, "mxtvis", false)
-                                        cppmdl.setElementProperty(j, "mark_number", "0")
-                                        cppmdl.setElementProperty(j, "mark_visible", "false")
+                                        cppmdl.setElementProperty(j, 263, "0")
+                                        cppmdl.setElementProperty(j, 264, "false")
                                         play.visible = false
                                         pause.visible = true
                                         tmpstr = setter.loadnamefromPL(aplayer.source)
                                         timer.start()
                                         //curlistmod.setProperty(curTrackPos-1, "clr", "#00000000")
                                         //curlistmod.setProperty(curTrackPos-1, "ico", "audio.png")
-                                        cppmdl.setElementProperty(curTrackPos-1, "color", "#00000000")
-                                        cppmdl.setElementProperty(curTrackPos-1, "icon", "audio.png")
+                                        cppmdl.setElementProperty(curTrackPos-1, 260, "#00000000")
+                                        cppmdl.setElementProperty(curTrackPos-1, 258, "audio.png")
                                         curTrackPos = j+1
                                         //curlistmod.setProperty(curTrackPos-1, "clr", "#22acee48")
                                         //curlistmod.setProperty(curTrackPos-1, "ico", "curplay.png")
-                                        cppmdl.setElementProperty(curTrackPos-1, "color", "#22acee48")
-                                        cppmdl.setElementProperty(curTrackPos-1, "icon", "curplay.png")
+                                        cppmdl.setElementProperty(curTrackPos-1, 260, "#22acee48")
+                                        cppmdl.setElementProperty(curTrackPos-1, 258, "curplay.png")
                                         setWidthOfPLName()
                                     }
                                     //if(curlistmod.get(j).mrknmb > 1){
-                                    if(cppmdl.data(j, "mark_number") > 1){
+                                    if(cppmdl.data(j, 263) > 1){
                                         //curlistmod.setProperty(j, "mrknmb", curlistmod.get(j).mrknmb - 1)
-                                        cppmdl.setElementProperty(j, "mark_number", cppmdl.data(j, "mark_number")-1)
+                                        cppmdl.setElementProperty(j, 263, cppmdl.data(j, 263)-1)
                                     }
                                 }
                                 currentlist.currentIndex = curTrackPos-1
@@ -225,14 +225,14 @@ ApplicationWindow {
                     if(repeat_state === 1)
                     {
                         //curlistmod.setProperty(curTrackPos-1, "ico", "curpause.png")
-                        cppmdl.setElementProperty(curTrackPos-1, "icon", "curpause.png")
+                        cppmdl.setElementProperty(curTrackPos-1, 258, "curpause.png")
                         aplayer.stop()
                         aplayer.play()
                         play.visible = false
                         pause.visible = true
                         timer.start()
                         //curlistmod.setProperty(curTrackPos-1, "ico", "curplay.png")
-                        cppmdl.setElementProperty(curTrackPos-1, "icon", "curplay.png")
+                        cppmdl.setElementProperty(curTrackPos-1, 258, "curplay.png")
                     }
                     if(repeat_state === 2)
                     {
@@ -240,8 +240,8 @@ ApplicationWindow {
                             endofnexttrack = false
                             //curlistmod.setProperty(curTrackPos-1, "clr", "#00000000")
                             //curlistmod.setProperty(curTrackPos-1, "ico", "audio.png")
-                            cppmdl.setElementProperty(curTrackPos-1, "color", "#00000000")
-                            cppmdl.setElementProperty(curTrackPos-1, "icon", "audio.png")
+                            cppmdl.setElementProperty(curTrackPos-1, 260, "#00000000")
+                            cppmdl.setElementProperty(curTrackPos-1, 258, "audio.png")
                             curTrackPos = oldCurTrackPos
                         }
                         if(state_next_track === false)
@@ -253,14 +253,14 @@ ApplicationWindow {
                                 pause.visible = true
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#00000000")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "audio.png")
-                                cppmdl.setElementProperty(curTrackPos-1, "color", "#00000000")
-                                cppmdl.setElementProperty(curTrackPos-1, "icon", "audio.png")
+                                cppmdl.setElementProperty(curTrackPos-1, 260, "#00000000")
+                                cppmdl.setElementProperty(curTrackPos-1, 258, "audio.png")
                                 tmpstr = setter.loadnamefromPL(aplayer.source)
                                 curTrackPos = 1
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#22acee48")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "curplay.png")
-                                cppmdl.setElementProperty(curTrackPos-1, "color", "#22acee48")
-                                cppmdl.setElementProperty(curTrackPos-1, "icon", "curplay.png")
+                                cppmdl.setElementProperty(curTrackPos-1, 260, "#22acee48")
+                                cppmdl.setElementProperty(curTrackPos-1, 258, "curplay.png")
                                 aplayer.play()
                                 timer.start()
                                 currentlist.currentIndex = curTrackPos-1
@@ -275,15 +275,15 @@ ApplicationWindow {
                                 timer.start()
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#00000000")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "audio.png")
-                                cppmdl.setElementProperty(curTrackPos-1, "color", "#00000000")
-                                cppmdl.setElementProperty(curTrackPos-1, "icon", "audio.png")
+                                cppmdl.setElementProperty(curTrackPos-1, 260, "#00000000")
+                                cppmdl.setElementProperty(curTrackPos-1, 258, "audio.png")
                                 if(nameofplaylisttxt.text === "")
                                     curTrackPos
                                 else curTrackPos++
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#22acee48")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "curplay.png")
-                                cppmdl.setElementProperty(curTrackPos-1, "color", "#22acee48")
-                                cppmdl.setElementProperty(curTrackPos-1, "icon", "curplay.png")
+                                cppmdl.setElementProperty(curTrackPos-1, 260, "#22acee48")
+                                cppmdl.setElementProperty(curTrackPos-1, 258, "curplay.png")
                                 setWidthOfPLName()
                                 currentlist.currentIndex = curTrackPos-1
                             }
@@ -297,35 +297,35 @@ ApplicationWindow {
                             tmpint = 1
                             for(var i = 0; i < generalTrackCount; i++){
                                 //if(curlistmod.get(i).mrknmb === 0)
-                                if(cppmdl.data(i, "mark_number") === 0)
+                                if(cppmdl.data(i, 263) === 0)
                                     continue
                                 else{
                                     //if(curlistmod.get(i).mrknmb === 1){
-                                    if(cppmdl.data(i, "mark_number") === 1){
+                                    if(cppmdl.data(i, 263) === 1){
                                         currentlist.currentIndex = i
                                         //curlistmod.setProperty(i, "mrknmb", 0)
                                         //curlistmod.setProperty(i, "mxtvis", false)
-                                        cppmdl.setElementProperty(i, "mark_number", "0")
-                                        cppmdl.setElementProperty(i, "mark_visible", "false")
+                                        cppmdl.setElementProperty(i, 263, "0")
+                                        cppmdl.setElementProperty(i, 264, "false")
                                         play.visible = false
                                         pause.visible = true
                                         tmpstr = setter.loadnamefromPL(aplayer.source)
                                         timer.start()
                                         //curlistmod.setProperty(curTrackPos-1, "clr", "#00000000")
                                         //curlistmod.setProperty(curTrackPos-1, "ico", "audio.png")
-                                        cppmdl.setElementProperty(curTrackPos-1, "color", "#00000000")
-                                        cppmdl.setElementProperty(curTrackPos-1, "icon", "audio.png")
+                                        cppmdl.setElementProperty(curTrackPos-1, 260, "#00000000")
+                                        cppmdl.setElementProperty(curTrackPos-1, 258, "audio.png")
                                         curTrackPos = i+1
                                         //curlistmod.setProperty(curTrackPos-1, "clr", "#22acee48")
                                         //curlistmod.setProperty(curTrackPos-1, "ico", "curplay.png")
-                                        cppmdl.setElementProperty(curTrackPos-1, "color", "#22acee48")
-                                        cppmdl.setElementProperty(curTrackPos-1, "icon", "curplay.png")
+                                        cppmdl.setElementProperty(curTrackPos-1, 260, "#22acee48")
+                                        cppmdl.setElementProperty(curTrackPos-1, 258, "curplay.png")
                                         setWidthOfPLName()
                                     }
                                     //if(curlistmod.get(i).mrknmb > 1){
-                                    if(cppmdl.data(i, "mark_number") > 1){
+                                    if(cppmdl.data(i, 263) > 1){
                                         //curlistmod.setProperty(i, "mrknmb", curlistmod.get(i).mrknmb - 1)
-                                        cppmdl.setElementProperty(i, "mark_number", cppmdl.data(i, "mark_number")-1)
+                                        cppmdl.setElementProperty(i, 263, cppmdl.data(i, 263)-1)
                                     }
                                 }
                                 currentlist.currentIndex = curTrackPos-1
@@ -792,7 +792,7 @@ ApplicationWindow {
                             setter.setPauseState(pause_state, currentPL)
                             setter.setStopState(stop_state, currentPL)
                             //curlistmod.setProperty(curTrackPos-1, "ico", "curplay.png")
-                            cppmdl.setElementProperty(curTrackPos-1, "icon", "curplay.png")
+                            cppmdl.setElementProperty(curTrackPos-1, 258, "curplay.png")
                             //console.log("play")
                         }
                     }
@@ -827,7 +827,7 @@ ApplicationWindow {
                             setter.setStopState(stop_state, currentPL)
                             setter.setPauseState(pause_state, currentPL)
                             //curlistmod.setProperty(curTrackPos-1, "ico", "curpause.png")
-                            cppmdl.setElementProperty(curTrackPos-1, "icon", "curpause.png")
+                            cppmdl.setElementProperty(curTrackPos-1, 258, "curpause.png")
                             //console.log("pause")
                         }
                     }
@@ -961,8 +961,8 @@ ApplicationWindow {
                                 endofnexttrack = false
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#00000000")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "audio.png")
-                                cppmdl.setElementProperty(curTrackPos-1, "color", "#00000000")
-                                cppmdl.setElementProperty(curTrackPos-1, "icon", "audio.png")
+                                cppmdl.setElementProperty(curTrackPos-1, 260, "#00000000")
+                                cppmdl.setElementProperty(curTrackPos-1, 258, "audio.png")
                                 curTrackPos = oldCurTrackPos
                             }
                             if(state_next_track === false){
@@ -980,15 +980,15 @@ ApplicationWindow {
                                 timer.start()
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#00000000")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "audio.png")
-                                cppmdl.setElementProperty(curTrackPos-1, "color", "#00000000")
-                                cppmdl.setElementProperty(curTrackPos-1, "icon", "audio.png")
+                                cppmdl.setElementProperty(curTrackPos-1, 260, "#00000000")
+                                cppmdl.setElementProperty(curTrackPos-1, 258, "audio.png")
                                 if(curTrackPos === 1)
                                     curTrackPos = generalTrackCount
                                 else curTrackPos--
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#22acee48")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "curplay.png")
-                                cppmdl.setElementProperty(curTrackPos-1, "color", "#22acee48")
-                                cppmdl.setElementProperty(curTrackPos-1, "icon", "curplay.png")
+                                cppmdl.setElementProperty(curTrackPos-1, 260, "#22acee48")
+                                cppmdl.setElementProperty(curTrackPos-1, 258, "curplay.png")
                                 console.log(curTrackPos)
                                 setter.setCurrentTrack(currentPL, curTrackPos)
                                 setWidthOfPLName()
@@ -1032,8 +1032,8 @@ ApplicationWindow {
                                 endofnexttrack = false
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#00000000")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "audio.png")
-                                cppmdl.setElementProperty(curTrackPos-1, "color", "#00000000")
-                                cppmdl.setElementProperty(curTrackPos-1, "icon", "audio.png")
+                                cppmdl.setElementProperty(curTrackPos-1, 260, "#00000000")
+                                cppmdl.setElementProperty(curTrackPos-1, 258, "audio.png")
                                 curTrackPos = oldCurTrackPos
                             }
                             if(state_next_track === false){
@@ -1050,15 +1050,15 @@ ApplicationWindow {
                                 timer.start()
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#00000000")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "audio.png")
-                                cppmdl.setElementProperty(curTrackPos-1, "color", "#00000000")
-                                cppmdl.setElementProperty(curTrackPos-1, "icon", "audio.png")
+                                cppmdl.setElementProperty(curTrackPos-1, 260, "#00000000")
+                                cppmdl.setElementProperty(curTrackPos-1, 258, "audio.png")
                                 if(curTrackPos === generalTrackCount)
                                     curTrackPos = 1
                                 else curTrackPos++
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#22acee48")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "curplay.png")
-                                cppmdl.setElementProperty(curTrackPos-1, "color", "#22acee48")
-                                cppmdl.setElementProperty(curTrackPos-1, "icon", "curplay.png")
+                                cppmdl.setElementProperty(curTrackPos-1, 260, "#22acee48")
+                                cppmdl.setElementProperty(curTrackPos-1, 258, "curplay.png")
                                 setter.setCurrentTrack(currentPL, curTrackPos)
                                 setWidthOfPLName()
                                 currentlist.currentIndex = curTrackPos-1
@@ -1070,35 +1070,35 @@ ApplicationWindow {
                                 tmpint = 1
                                 for(var i = 0; i < generalTrackCount; i++){
                                     //if(curlistmod.get(i).mrknmb === 0)
-                                    if(cppmdl.data(i, "mark_number") === 0)
+                                    if(cppmdl.data(i, 263) === 0)
                                         continue
                                     else{
                                         //if(curlistmod.get(i).mrknmb === 1){
-                                        if(cppmdl.data(i, "mark_number") === 1){
+                                        if(cppmdl.data(i, 263) === 1){
                                             currentlist.currentIndex = i
                                             //curlistmod.setProperty(i, "mrknmb", 0)
                                             //curlistmod.setProperty(i, "mxtvis", false)
-                                            cppmdl.setElementProperty(i, "mark_number", "0")
-                                            cppmdl.setElementProperty(i, "mark_visible", "false")
+                                            cppmdl.setElementProperty(i, 263, "0")
+                                            cppmdl.setElementProperty(i, 264, "false")
                                             play.visible = false
                                             pause.visible = true
                                             tmpstr = setter.loadnamefromPL(aplayer.source)
                                             timer.start()
                                             //curlistmod.setProperty(curTrackPos-1, "clr", "#00000000")
                                             //curlistmod.setProperty(curTrackPos-1, "ico", "audio.png")
-                                            cppmdl.setElementProperty(curTrackPos-1, "color", "#00000000")
-                                            cppmdl.setElementProperty(curTrackPos-1, "icon", "audio.png")
+                                            cppmdl.setElementProperty(curTrackPos-1, 260, "#00000000")
+                                            cppmdl.setElementProperty(curTrackPos-1, 258, "audio.png")
                                             curTrackPos = i+1
                                             //curlistmod.setProperty(curTrackPos-1, "clr", "#22acee48")
                                             //curlistmod.setProperty(curTrackPos-1, "ico", "curplay.png")
-                                            cppmdl.setElementProperty(curTrackPos-1, "color", "#22acee48")
-                                            cppmdl.setElementProperty(curTrackPos-1, "icon", "curplay.png")
+                                            cppmdl.setElementProperty(curTrackPos-1, 260, "#22acee48")
+                                            cppmdl.setElementProperty(curTrackPos-1, 258, "curplay.png")
                                             setWidthOfPLName()
                                         }
                                         //if(curlistmod.get(i).mrknmb > 1){
-                                        if(cppmdl.data(i, "mark_number") > 1){
+                                        if(cppmdl.data(i, 263) > 1){
                                             //curlistmod.setProperty(i, "mrknmb", curlistmod.get(i).mrknmb - 1)
-                                            cppmdl.setElementProperty(i, "mark_number", cppmdl.data(i, "mark_number")-1)
+                                            cppmdl.setElementProperty(i, 263, cppmdl.data(i, 263)-1)
                                         }
                                     }
                                 }
@@ -2063,17 +2063,17 @@ ApplicationWindow {
                                     searchlistmod.clear()
 
                                     for(var i = 0; i < currentlist.count; i++){
-                                        tmpstr2 = cppmdl.data(i, "name")//curlistmod.get(i).nam
+                                        tmpstr2 = cppmdl.data(i, 257)//curlistmod.get(i).nam
                                         tmpstr2 = tmpstr2.toUpperCase()
                                         tmpstr3 = searchinp.text
                                         tmpstr3 = tmpstr3.toUpperCase()
                                         if(setter.searchTrack(tmpstr3, tmpstr2) === true){
-                                            searchlistmod.append({"nam": cppmdl.data(i, "name"),//curlistmod.get(i).nam,
-                                                               "ico": cppmdl.data(i, "icon"),//curlistmod.get(i).ico,
-                                                               "nmb": cppmdl.data(i, "number"),//curlistmod.get(i).nmb,
-                                                               "clr": cppmdl.data(i, "color"),//curlistmod.get(i).clr,
-                                                               "pth": cppmdl.data(i, "path"),//curlistmod.get(i).pth,
-                                                               "mxt": cppmdl.data(i, "mark")})//curlistmod.get(i).mxt})
+                                            searchlistmod.append({"nam": cppmdl.data(i, 257),//curlistmod.get(i).nam,
+                                                               "ico": cppmdl.data(i, 258),//curlistmod.get(i).ico,
+                                                               "nmb": cppmdl.data(i, 259),//curlistmod.get(i).nmb,
+                                                               "clr": cppmdl.data(i, 260),//curlistmod.get(i).clr,
+                                                               "pth": cppmdl.data(i, 261),//curlistmod.get(i).pth,
+                                                               "mxt": cppmdl.data(i, 262)})//curlistmod.get(i).mxt})
                                         }
                                         else continue
                                     }
@@ -2132,7 +2132,7 @@ ApplicationWindow {
                     model: ListModel{
                         id: listmod
                         ListElement{
-                            nam: "NAME"
+                            nam: "NAME1"
                             ico: "justfile.png"
                             chck: "mark_grey.png"
                             clr: "#00000000"
@@ -2382,7 +2382,7 @@ ApplicationWindow {
                     //        pth: ""
                     //        nmb: "0"
                     //        ico: "audio.png"
-                    //        nam: "NAME"
+                    //        nam: "NAME1"
                     //        clr: "#00000000"
                     //        mrknmb: 0
                     //        mxt: "mark_next.png"
@@ -2392,8 +2392,8 @@ ApplicationWindow {
                     delegate: Rectangle{
                         id: curdlgt
                         height: currentlist.height/10
-                        width: currentlist.width//25*24
-                        color: cppmdl.color//clr
+                        width: currentlist.width
+                        color: colorR//clr
                         anchors.margins: 20
                         clip: true
                         MouseArea{
@@ -2409,19 +2409,19 @@ ApplicationWindow {
                                 curtime.text = "00:00"
                                 activeprogress.width = 0
                                 //console.log("cur-1 ="+(curTrackPos-1))
-                                aplayer.source = pth
+                                aplayer.source = pathR
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#00000000")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "audio.png")
-                                cppmdl.setElementProperty(curTrackPos-1, "color", "#00000000")
-                                cppmdl.setElementProperty(curTrackPos-1, "icon", "audio.png")
+                                cppmdl.setElementProperty(curTrackPos-1, 260, "#00000000")
+                                cppmdl.setElementProperty(curTrackPos-1, 258, "audio.png")
 
                                 //здесь ниже неясно за что отвечает index
 
-                                curTrackPos = cppmdl.data(index, "number")//curlistmod.get(index).nmb
+                                curTrackPos = cppmdl.data(index, 259)//curlistmod.get(index).nmb
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#22acee48")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "curplay.png")
-                                cppmdl.setElementProperty(curTrackPos-1, "color", "#22acee48")
-                                cppmdl.setElementProperty(curTrackPos-1, "icon", "curplay.png")
+                                cppmdl.setElementProperty(curTrackPos-1, 260, "#22acee48")
+                                cppmdl.setElementProperty(curTrackPos-1, 258, "curplay.png")
                                 aplayer.play()
                                 pause_state = false
                                 play.visible = false
@@ -2434,41 +2434,41 @@ ApplicationWindow {
                                 setTitleAnimatiom()
                             }
                             onPressAndHold: {
-                                if(mxtvis === false){
+                                if(markvR === false){
                                     //if(curlistmod.get(currentlist.currentIndex).nmb === (currentlist.currentIndex+1)+".")
-                                    if(cppmdl.data(currentlist.currentIndex, "number") === (currentlist.currentIndex+1)+".")
+                                    if(cppmdl.data(currentlist.currentIndex, 259) === (currentlist.currentIndex+1)+".")
                                         return
                                     else{
-                                        mxtvis = true
-                                        mrknmb = ++addnexttrack
-                                        setter.addNextTrack(currentPL, pth, addnexttrack)
+                                        markvR = true
+                                        marknR = ++addnexttrack
+                                        setter.addNextTrack(currentPL, pathR, addnexttrack)
                                         if(addnexttrack === 1){
                                             oldCurTrackPos = curTrackPos
                                             state_next_track = true
                                         }
                                     }
                                 }
-                                else if(mxtvis === true){
-                                    setter.delNextTrack(currentPL, mrknmb)
-                                    tmpint = mrknmb
+                                else if(markvR === true){
+                                    setter.delNextTrack(currentPL, marknR)
+                                    tmpint = marknR
                                     tmpint2 = tmpint
                                     for(var j = 0; j < generalTrackCount; j++){
                                         currentlist.currentIndex = j
                                         //if(cppmdl.data(j, cppmdl.roleNames(number)) === 0)//curlistmod.get(j).mrknmb === 0)
-                                        if(cppmdl.data(j, "number") === 0)
+                                        if(cppmdl.data(j, 259) === 0)
                                             continue
                                         else{
                                             //if(curlistmod.get(j).mrknmb === tmpint){
-                                            if(cppmdl.data(j, "mark_number") === 0){
+                                            if(cppmdl.data(j, 263) === 0){
                                                 //curlistmod.setProperty(j, "mrknmb", "0")
-                                                cppmdl.setElementProperty(j, "mark_number", "0")
-                                                mxtvis = false
+                                                cppmdl.setElementProperty(j, 263, "0")
+                                                markvR = false
                                                 tmpint += generalTrackCount
                                             }
                                             //if(curlistmod.get(j).mrknmb > tmpint2){
-                                            if(cppmdl.data(j, "mark_number") > tmpint2){
+                                            if(cppmdl.data(j, 263) > tmpint2){
                                                 //curlistmod.setProperty(j, "mrknmb", curlistmod.get(j).mrknmb - 1)
-                                                cppmdl.setElementProperty(j, "mark_number", cppmdl.data(j, "mark_number")-1)
+                                                cppmdl.setElementProperty(j, 263, cppmdl.data(j, 263)-1)
                                             }
                                         }
                                     }
@@ -2490,18 +2490,19 @@ ApplicationWindow {
                                 id: curplicon
                                 height: parent.height*0.5
                                 width: height
-                                source: cppmdl.icon//ico
+                                source: iconR//ico
                                 fillMode: Image.PreserveAspectFit
                                 anchors.centerIn: parent
                                 MouseArea{
                                     anchors.fill: parent
                                     onClicked: {
                                         console.log(curplicon.source)
-                                        if(ico === "audio.png"){   //из source получаю картинку в виде == "qrc:/name.png"
+                                        //if(ico === "audio.png"){   //из source получаю картинку в виде == "qrc:/name.png"
+                                        if(iconR === "audio.png"){
                                             return
                                         }
-                                        else if(ico === "curplay.png"){
-                                            ico = "curpause.png"
+                                        else if(iconR === "curplay.png"){
+                                            iconR = "curpause.png"
                                             pause.visible = false
                                             play.visible = true
                                             aplayer.pause()
@@ -2512,8 +2513,8 @@ ApplicationWindow {
                                             setter.setPauseState(pause_state, currentPL)
                                             setter.setStopState(stop_state, currentPL)
                                         }
-                                        else if(ico === "curpause.png"){
-                                            ico = "curplay.png"
+                                        else if(iconR === "curpause.png"){
+                                            iconR = "curplay.png"
                                             play.visible = false
                                             pause.visible = true
                                             aplayer.play()
@@ -2524,8 +2525,8 @@ ApplicationWindow {
                                             setter.setPauseState(pause_state, currentPL)
                                             setter.setStopState(stop_state, currentPL)
                                         }
-                                        else if(ico === "curstop.png"){
-                                            ico = "curplay.png"
+                                        else if(iconR === "curstop.png"){
+                                            iconR = "curplay.png"
                                             play.visible = false
                                             pause.visible = true
                                             aplayer.play()
@@ -2536,13 +2537,13 @@ ApplicationWindow {
                                             setter.setPauseState(pause_state, currentPL)
                                             setter.setStopState(stop_state, currentPL)
                                         }
-                                        }
                                     }
+                                }
                             }
                         }
                         Text{
                             id: curplnumber
-                            text: cppmdl.number//nmb
+                            text: numberR//nmb
                             color: "#acee48"
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.left: curpliconrect.right
@@ -2550,7 +2551,7 @@ ApplicationWindow {
                         }
                         Text{
                             id: curplname
-                            text: cppmdl.name//nam
+                            text: nameR//nam
                             color: "#acee48"
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.left: curplnumber.right
@@ -2560,25 +2561,25 @@ ApplicationWindow {
                             id: nexttrackmark
                             height: parent.height*0.7
                             width: height
-                            source: cppmdl.mark//mxt//"mark_green.png"
+                            source: markR//mxt//"mark_green.png"
                             fillMode: Image.PreserveAspectFit
                             anchors.right: parent.right
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.rightMargin: 5
-                            visible: mxtvis
+                            visible: cppmdl.data(0, 264)
                             Text{
                                 id: nexttracknumber
                                 anchors.centerIn: nexttrackmark
                                 color: "black"
                                 font.bold: true
-                                text: mrknmb
+                                text: marknR
                                 //visible: false
                             }
                         }
                         Text{
                             id: nexttrackpath
                             visible: false
-                            text: cppmdl.path//pth
+                            text: pathR//pth
                         }
                     }
                 }
@@ -2595,7 +2596,7 @@ ApplicationWindow {
                     model: ListModel{
                         id: fmlistmod
                         ListElement{
-                            nam: "NAME"
+                            nam: "NAME1"
                             ico: "justfile.png"
                             chck: "mark_grey.png"
                             clr: "#00000000"
@@ -2814,8 +2815,8 @@ ApplicationWindow {
                                     if(searchlistmod.get(searchlist.currentIndex).nmb === (searchlist.currentIndex+1)+".")
                                         return
                                     else{
-                                        mxtvis = true
-                                        mrknmb = ++addnexttrack
+                                        markvR = true
+                                        marknR = ++addnexttrack
                                         setter.addNextTrack(currentPL, pth, addnexttrack)
                                         if(addnexttrack === 1){
                                             oldCurTrackPos = curTrackPos
@@ -3365,7 +3366,7 @@ ApplicationWindow {
         //                   'shuffle': shuffle_state,
         //                   'stop': stop_state,
         //                   'pause': pause_state})
-        cppmdl.roleNames()
+        //cppmdl.roleNames()
         currentlist.currentIndex = curTrackPos-1
         setTitleAnimatiom()
     }
