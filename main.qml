@@ -95,10 +95,8 @@ ApplicationWindow {
                 }
             }
             else{
-                if(cutRepeat === true)
-                {
-                    if(aplayer.position > cutBpos || aplayer.position < cutApos)
-                    {
+                if(cutRepeat === true){
+                    if(aplayer.position > cutBpos || aplayer.position < cutApos){
                         cutA = false
                         cutB = false
                         cutApos = 0
@@ -273,10 +271,13 @@ ApplicationWindow {
                                 pause.visible = true
                                 tmpstr = setter.loadnamefromPL(aplayer.source)
                                 timer.start()
+                                console.log("///1")
+                                console.log(curTrackPos-1)
                                 //curlistmod.setProperty(curTrackPos-1, "clr", "#00000000")
                                 //curlistmod.setProperty(curTrackPos-1, "ico", "audio.png")
                                 cppmdl.setElementProperty(curTrackPos-1, 260, "#00000000")
                                 cppmdl.setElementProperty(curTrackPos-1, 258, "audio.png")
+                                console.log("///2")
                                 if(nameofplaylisttxt.text === "")
                                     curTrackPos
                                 else curTrackPos++
@@ -2496,44 +2497,56 @@ ApplicationWindow {
                                 MouseArea{
                                     anchors.fill: parent
                                     onClicked: {
-                                        console.log(curplicon.source)
                                         //if(ico === "audio.png"){   //из source получаю картинку в виде == "qrc:/name.png"
-                                        if(iconR === "audio.png"){
+                                        console.log(curplicon.source)
+                                        console.log(iconR)
+                                        if(iconR == "audio.png" || iconR === "qrc:/audio.png"){
+                                            console.log(curplicon.source)
+                                            console.log(iconR)
                                             return
                                         }
-                                        else if(iconR === "curplay.png"){
+                                        else if(iconR == "curplay.png"){
                                             iconR = "curpause.png"
+                                            curplicon.source = iconR
+                                            console.log(curplicon.source)
+                                            console.log(iconR)
                                             pause.visible = false
                                             play.visible = true
                                             aplayer.pause()
                                             timer.stop()
                                             pause_state = true
                                             stop_state = false
-                                            console.log("pause")
+                                            //console.log("pause")
                                             setter.setPauseState(pause_state, currentPL)
                                             setter.setStopState(stop_state, currentPL)
                                         }
-                                        else if(iconR === "curpause.png"){
+                                        else if(iconR == "curpause.png"){
                                             iconR = "curplay.png"
+                                            curplicon.source = iconR
+                                            console.log(curplicon.source)
+                                            console.log(iconR)
                                             play.visible = false
                                             pause.visible = true
                                             aplayer.play()
                                             timer.start()
                                             pause_state = false
                                             stop_state = false
-                                            console.log("play")
+                                            //console.log("play")
                                             setter.setPauseState(pause_state, currentPL)
                                             setter.setStopState(stop_state, currentPL)
                                         }
-                                        else if(iconR === "curstop.png"){
+                                        else if(iconR == "curstop.png"){
                                             iconR = "curplay.png"
+                                            curplicon.source = iconR
+                                            console.log(curplicon.source)
+                                            console.log(iconR)
                                             play.visible = false
                                             pause.visible = true
                                             aplayer.play()
                                             timer.start()
                                             pause_state = false
                                             stop_state = true
-                                            console.log("play")
+                                            //console.log("play")
                                             setter.setPauseState(pause_state, currentPL)
                                             setter.setStopState(stop_state, currentPL)
                                         }
@@ -2566,7 +2579,7 @@ ApplicationWindow {
                             anchors.right: parent.right
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.rightMargin: 5
-                            visible: cppmdl.data(0, 264)
+                            visible: markvR//cppmdl.data(0, 264)
                             Text{
                                 id: nexttracknumber
                                 anchors.centerIn: nexttrackmark
@@ -3329,7 +3342,7 @@ ApplicationWindow {
         cppmdl.clearModel()
         for(var i = 1; i <= setter.getPLTracksCount(currentPL); i++)
         {
-            cppmdl.addElement(setter.viewPL(currentPL, i, shuffle_state),
+            cppmdl.addElement(i, setter.viewPL(currentPL, i, shuffle_state),
                               setter.viewPL(currentPL, i, shuffle_state) === tmpstr ? (stop_state === true ? "curstop.png" : pause_state === false ? "curplay.png" : "curpause.png") : "audio.png",
                               i+".",
                               setter.viewPL(currentPL, i, shuffle_state) === tmpstr ? "#22acee48" : "#00000000",
@@ -3337,7 +3350,6 @@ ApplicationWindow {
                               "mark_next.png",
                               "0",
                               "false")
-
         }
 
         //for(var i = 1; i <= setter.getPLTracksCount(currentPL); i++)

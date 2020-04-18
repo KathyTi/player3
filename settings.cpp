@@ -189,14 +189,13 @@ QString Settings::nextTrack(QString namePL, int pos, bool shuffle)
         }
         else
         {
-            qDebug() << "DEBUG ";
+            qDebug() << "DEBUG";
             bool ok;
             int tmppos;
             tmppos = setter2->value(QString("Q%1").arg(0), "ERROR_GETTING_1ST_FILENAME").toInt(&ok);
             if(pos == tmppos) { tempstr = setter2->value(QString("Q%1").arg(1), "ERROR_GETTING_1ST_FILENAME").toString(); }
             else { tempstr = setter2->value(QString("Q%1").arg(pos+1), "ERROR_GETTING_1ST_FILENAME").toString(); }
         }
-
     }
     setter->endGroup();
     setter2->endGroup();

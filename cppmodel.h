@@ -1,14 +1,13 @@
 #ifndef CPPMODEL_H
 #define CPPMODEL_H
-#include <QString>
-#include <QModelIndex>
 #include <QAbstractListModel>
+#include <QModelIndex>
+#include <QString>
 
-class CppModel : public QAbstractListModel
-{
+class CppModel : public QAbstractListModel {
     Q_OBJECT
 public:
-    explicit CppModel(QAbstractListModel *parent = nullptr);
+    explicit CppModel();
     enum Roles{
         nameRole = Qt::UserRole+1,
         iconRole,
@@ -29,22 +28,36 @@ public:
         QString m_mark = "mark_green.png";
         QString m_mark_number = "0";
         QString m_mark_visible = "false";
-        ElementData(const QString& name, const QString& icon, const QString& number, const QString& color, const QString& path, const QString& mark, const QString& mark_number, const QString& mark_visible)
-            :m_name(name), m_icon(icon), m_number(number), m_color(color), m_path(path), m_mark(mark), m_mark_number(mark_number), m_mark_visible(mark_visible){}
+        ElementData(const QString& name, const QString& icon, const QString& number,
+                    const QString& color, const QString& path, const QString& mark,
+                    const QString& mark_number, const QString& mark_visible)
+            :m_name(name), m_icon(icon), m_number(number),
+              m_color(color), m_path(path), m_mark(mark),
+              m_mark_number(mark_number), m_mark_visible(mark_visible) {}
     };
-    CppModel();
+signals:
+    void numberPopulated(int number);
 public slots:
     //rowCount, data, roles и в твоем случае canFetchMore и FetchMore.
-    virtual int rowCount(const QModelIndex &parent) const override;
-    virtual QVariant data(const QModelIndex &index, int role) const override;
-    virtual QHash<int, QByteArray> roleNames() const override;
-    void addElement(const QString &name, const QString &icon, const QString &number, const QString &color, const QString &path, const QString &mark, const QString& mark_number, const QString& mark_visible);
-    void appendElement(const QString& name, const QString& icon, const QString& number, const QString& color, const QString& path, const QString& mark, const QString& mark_number, const QString& mark_visible);
+    int rowCount(const QModelIndex &parent) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
+    QHash<int, QByteArray> roleNames() const override;
+    bool canFetchMore(const QModelIndex &parent) const override;
+    void fetchMore(const QModelIndex &parent) override;
+
+
+    void addElement(int index, const QString &name, const QString &icon, const QString &number,
+                    const QString &color, const QString &path, const QString &mark,
+                    const QString& mark_number, const QString& mark_visible);
+    void appendElement(int index, const QString& name, const QString& icon, const QString& number,
+                       const QString& color, const QString& path, const QString& mark,
+                       const QString& mark_number, const QString& mark_visible);
     void clearModel();
-    void setElementProperty(const QModelIndex &index, int role, QVariant data);
+    void setElementProperty(int index, int role, QString data);
 private:
     QString tmpstr;
     QList <ElementData> dataList;
+    int fileCount;
 };
 
 #endif // CPPMODEL_H
